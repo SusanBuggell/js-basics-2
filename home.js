@@ -22,10 +22,9 @@
 */
 
 //CODE HERE
+let greetUser = username => `Welcome back, ${username}`;
 
-
-
-
+console.log(greetUser(`Andrew`));
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -50,8 +49,11 @@
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-
-
+let canWeDeliver = zipCode => ((deliveryAreaZipCodes.includes(zipCode)===true) ? console.log(`You're in our delivery zone!`) : console.log(`Sorry, we are not yet delivering in your area.`))
+// console.log(`canWeDeliver: outOfBounds`);
+// //canWeDeliver(48375);
+// console.log(`canWeDeliver: inBounds`);
+// canWeDeliver(85205);
 
 /* 
     Problem 2 Continued
@@ -71,7 +73,23 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
+function canWeDeliverTwo(zipCode) {
+let avail = false;
+if(avail!==true){
+for(let i=0;i<deliveryAreaZipCodes.length;i++){
+  
+if(zipCode===deliveryAreaZipCodes[i]){
+  avail=true;
+}
 
+}
+}
+console.log((avail===true) ? `We can deliver to your address.`:`We are not yet delivering do your area.  Please try again, in the futue.`)  
+} ;
+// console.log(`canWeDeliverTwo: outOfBounds`)
+// canWeDeliverTwo(45789);
+// console.log(`canWeDeliverTwo: inBounds`)
+// canWeDeliverTwo(85205);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -107,8 +125,11 @@ const deals = [
 */
 
 //CODE HERE
-
-
+console.log(deals[0].title)
+deals[0].title=deals[0].title.replace('15%','10%')
+// (deals[0].title).replace(`15% Off!`,`10% Off!`);
+// console.log(deals)
+console.log(deals[0].title)
 
 /*
     The restaurant is going to continue its
@@ -124,3 +145,8 @@ const deals = [
 */
 
 //CODE HERE
+console.log(deals[1].desc)
+deals[0].desc=deals[1].desc.replace('March','April')
+// (deals[0].title).replace(`15% Off!`,`10% Off!`);
+// console.log(deals)
+console.log(deals[0].desc)
