@@ -35,8 +35,10 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce(reducer,0)
+function reducer(prevValue,currVal,currIndex,arr){
 
+}
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,7 +56,13 @@ const cart = [
 */
 
 //CODE HERE
+function caclFinalPrice(cartTotal,couponValue,tax){
+    taxTotal = cartTotal*tax;
+    cartTotalTaxInc = taxTotal+taxTotal;
+    cartTotalFinal -= couponValue; 
+    return cartTotalFinal
 
+}
 
 
 //////////////////PROBLEM 3////////////////////
@@ -79,6 +87,16 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    
+    termAddress: type: 'string': Mr., Mrs., Miss, Mx., Dr., etc: greeting customers politely
+    firstName: type: 'string': customer's first name: adding a personal attention value/completing mailing address
+    lastName: type: 'string': customer's last name: adding a personal attention value/completing mailing address
+    streetAddress: type: 'string': customer's street address: completing mailing address
+    cityAddress: type: 'string': customer's city: completing mailing address
+    stateAddress: type: 'string': customer's state: completing mailing address
+    zipCode: type: 'string': customer's zip code: completing mailing address
+    phoneNumber: 'string': customer's phone number: method of contacting customer/sending promotions/current events
+    email: 'string': customer's email: method of contacting customer/sending promotions/current events
 
 */
 
@@ -88,3 +106,11 @@ const cart = [
 */
 
 //CODE HERE
+const customer = {termAddress:`Mrs.`, 
+                  firstName: `Euphegenia`, 
+                  lastNAme: `Doubtfire`, 
+                  streetAddress: `2640 Steiner St`, 
+                  cityAddress: `San Francisco`, 
+                  stateAddress: `CA`,
+                  phoneNumber:`4156666666`,
+                  email:'effie@doubtfire.com'}
