@@ -21,7 +21,7 @@
 
 //CODE HERE
 
-const Employee = class{
+class Employee{
     constructor(name,shifts){
     this.name = name
     this.shifts = shifts
@@ -52,7 +52,6 @@ const empOne = new Employee('Breanna', 'weekday middays');
 
 //CODE HERE
 empOne.getSchedule();
-
 /*
     Make a copy of the empOne object
     using the spread operator.
@@ -67,7 +66,7 @@ empOne.getSchedule();
 
 //CODE HERE
 const empTwo = {...empOne,name:'Nick'};
-
+console.log(empTwo)
 
 //////////////////PROBLEM 2////////////////////
 /*  
