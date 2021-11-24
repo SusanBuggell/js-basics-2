@@ -35,11 +35,9 @@ const cart = [
 
 //CODE HERE
 
-const summedPrice = cart.reduce(reducer,0)
-function reducer(prevValue,currVal,currIndex,arr){
-
-}
-
+const cartTotal = cart.reduce((prevValue, currVal) => (Number(prevValue) + Number(currVal.price)),0)
+// const reducer = (prevValue, currVal) => (prevValue + currVal.price, 0)
+console.log(`Your cart total is currently: ${cartTotal}`);
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -56,13 +54,16 @@ function reducer(prevValue,currVal,currIndex,arr){
 */
 
 //CODE HERE
-function caclFinalPrice(cartTotal,couponValue,tax){
+function calcFinalPrice(cartTotal,couponValue,tax){
     taxTotal = cartTotal*tax;
-    cartTotalTaxInc = taxTotal+taxTotal;
-    cartTotalFinal -= couponValue; 
+    cartTotalTaxInc = taxTotal+cartTotal;
+    cartTotalFinal = cartTotalTaxInc - couponValue; 
+    console.log(`Your subtotal is: ${cartTotal} with a tax rate of ${tax} and a coupon valued at ${couponValue} for a final balance due of: ${cartTotalFinal}`)
     return cartTotalFinal
-
 }
+calcFinalPrice(cartTotal,2.00,.06)
+
+
 
 
 //////////////////PROBLEM 3////////////////////
@@ -88,15 +89,16 @@ function caclFinalPrice(cartTotal,couponValue,tax){
 /*
     TEXT ANSWER HERE
     
-    termAddress: type: 'string': Mr., Mrs., Miss, Mx., Dr., etc: greeting customers politely
-    firstName: type: 'string': customer's first name: adding a personal attention value/completing mailing address
-    lastName: type: 'string': customer's last name: adding a personal attention value/completing mailing address
-    streetAddress: type: 'string': customer's street address: completing mailing address
-    cityAddress: type: 'string': customer's city: completing mailing address
-    stateAddress: type: 'string': customer's state: completing mailing address
-    zipCode: type: 'string': customer's zip code: completing mailing address
-    phoneNumber: 'string': customer's phone number: method of contacting customer/sending promotions/current events
-    email: 'string': customer's email: method of contacting customer/sending promotions/current events
+    termAddress: type: 'string': Mr., Mrs., Miss, Mx., Dr., etc: Greeting customers politely. I chose a string because this item requires alphabetical characters.
+    firstName: type: 'string': customer's first name: Adding a personal attention value for greetings/completing mailing address. I chose a string because this item requires alphabetical characters.
+    lastName: type: 'string': customer's last name: adding A personal attention value/completing mailing address. I chose a string because this item requires alphabetical characters.
+    streetAddress: type: 'string': customer's street address: Completing mailing address.  I chose a string because this item requires alphanumeric characters as well as white space.
+    cityAddress: type: 'string': customer's city: completing mailing address. I chose a string because this item requires alphabetical characters.
+    stateAddress: type: 'string': customer's state: completing mailing address. I chose a string because this item requires alphabetical characters.
+    postalCode: type: 'string': customer's postal code: completing mailing address. I chose a string because this item may require alphabetical as well as numeric characters, depending on origin of address of customer.
+    country: type: 'string': customer's country: completing mailing address. I chose a string because this item requires alphabetical characters and may include white space.
+    phoneNumber: 'string': customer's phone number: method of contacting customer/sending promotions/current events/coupons. I chose string to allow more flexible user entry, varying quantities of input lengths and also in terms of including (), -, . in between numbers, or possibly + preceeding a country code. 
+    email: 'string': customer's email: method of contacting customer/sending promotions/current events. I chose a string because this item requires a collection of alphanumeric and special characters.
 
 */
 
@@ -112,5 +114,8 @@ const customer = {termAddress:`Mrs.`,
                   streetAddress: `2640 Steiner St`, 
                   cityAddress: `San Francisco`, 
                   stateAddress: `CA`,
+                  postalCode: `94115`,
+                  country: `United States`,
                   phoneNumber:`4156666666`,
                   email:'effie@doubtfire.com'}
+    console.log(customer);

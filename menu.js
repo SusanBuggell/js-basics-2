@@ -1,4 +1,4 @@
-git///////////////////////////////////////////////
+///////////////////////////////////////////////
 ///////////////////MENU.JS/////////////////////
 ///////////////////////////////////////////////
 /*
@@ -32,6 +32,8 @@ git///////////////////////////////////////////////
 
 //CODE HERE
 
+const pizza = {name:"Margherita", price:12, category:"entree", popularity:99, rating:87, tags:[`gluten-free crust available`, `vegetarian`]};
+//console.log(pizza)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -44,6 +46,7 @@ git///////////////////////////////////////////////
 
 //CODE HERE
 
+console.log(`Popularity of ${pizza.name} is: ${pizza.popularity}.`);
 
 /*
     Second, log the second tag in your pizza's
@@ -54,7 +57,7 @@ git///////////////////////////////////////////////
 
 //CODE HERE
 
-
+console.log(`Tags for ${pizza.name}: ${pizza.tags[1]}`)
 /*
     Third, destructure the price off of the
     pizza object.
@@ -63,7 +66,8 @@ git///////////////////////////////////////////////
 */
 
 //CODE HERE
-
+const {price} = pizza;
+console.log(`The price for ${pizza.name} is: ${price}`);
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +77,8 @@ git///////////////////////////////////////////////
 */
 
 //CODE HERE
-
+const {category} = pizza;
+console.log(`The category for ${pizza.name} is: ${category}`);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -89,8 +94,11 @@ git///////////////////////////////////////////////
 
 //CODE HERE
 
-
-
+const foodArr = [{name:"Margherita", price:12, category:"entree", popularity:99, rating:94, tags:[`gluten-free crust available`, `vegetarian`, 'not spicy']},
+                {name:"Diavola", price:15, category:"entree", popularity:85, rating:80, tags:[`gluten-free crust available`, `contains pork products`, `spicy`]},
+                {name:"Siciliana", price:14, category:"entree", popularity:80, rating:75, tags:[`gluten-free crust available`, `vegetarian`,`not spicy`]},
+                {name:"Quattro formaggi con ananas", price:17, category:"entree", popularity:70, rating:65, tags:[`gluten-free crust available`, `vegetarian`, `contains a large quantity of dairy`]},
+                {name:"Tonno e cipolla", price:16, category:"entree", popularity:75, rating:70, tags:[`gluten-free crust available`, `contains fish`, 'pescartarian']}]
 //////////////////PROBLEM 4////////////////////
 /* 
     Let's filter the food objects according
@@ -105,9 +113,13 @@ git///////////////////////////////////////////////
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+ function filteredFood(elementSearchTag){
+    return foodArr.filter(index=>{
+         return index.tags.includes(elementSearchTag) ;
+         })
+};
 
-
+    console.log(filteredFood(`contains fish`));
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -150,12 +162,38 @@ git///////////////////////////////////////////////
 
 //CODE HERE
 
+function filterByProperty (property, number, type){
+    arrFilter = foodArr.filter(isAboveBelow =>{
+    
+        if (property === `rating`){
+            if (((type ===`above`)) && ((isAboveBelow.rating > number))||((type ===`below`) && (isAboveBelow.rating < number ))){
+                return true;
+                } else {return false;
+                    }
+            }
+                else if(property === `popularity`){
+                    if(((type ===`above`) && (isAboveBelow.popularity > number))||((type ===`below`) && (isAboveBelow.popularity < number))){
+                        return true;
+                        }else{return false;
+                            }
+                    }
+                        else if(property === `price`){
+                                if(((type ===`above`) && (isAboveBelow.price > number))||((type ===`below`) && (isAboveBelow.price < number))){
+                                    return true;
+                                    }else{return false;
+                                        }
+                            }
+                })
+            return arrFilter;
+        }
 
-/*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+// /*
+//     Invoke the `filterByProperty` function passing
+//     in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
-*/
+//     You'll have to console.log to see the filtered array
+// */
 
-//CODE HERE
+// //CODE HERE
+ console.log(filterByProperty('price', 20, 'below'));
+ console.log(filterByProperty('price', 15, 'below'))
